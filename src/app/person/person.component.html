@@ -1,9 +1,13 @@
-<p>exercise</p>
+<button style='margin:5px'>All</button>
+<button style='margin:5px'>Active</button>
+<button style='margin:5px'>Inactive</button>
+<hr>
 <ul>
   <li *ngFor="let person of listPerson">
-    {{person.id}}
-    {{person.name}}
-    {{person.surname}}
-    {{person.active}}
+    <p>Id:{{person.id}}</p>
+    <p>Name:{{person.name}}</p>
+    <p>Surname:{{person.surname}}</p>
+    <p>Active:{{person.active}}</p>
+    <hr>
   </li>
 </ul>

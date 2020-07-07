@@ -1,4 +1,4 @@
-import { PERSON } from './../mock-person';
+import { PersonService } from './../person.service';
 import { Component, OnInit } from '@angular/core';
 import { Person } from '../person/person';
 
@@ -8,11 +8,16 @@ import { Person } from '../person/person';
   styleUrls: ['./person.component.css'],
 })
 export class PersonComponent implements OnInit {
-  listPerson = PERSON;
+  listPerson: Person[];
 
-  constructor() {}
+  constructor(private personService: PersonService) {}
 
   ngOnInit(): void {
-    console.log(this.listPerson);
+    this.getPerson();
+  }
+
+  getPerson(): void {
+    console.log(this.personService);
+    this.listPerson = this.personService.getPerson();
   }
 }
