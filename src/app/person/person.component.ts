@@ -13,11 +13,31 @@ export class PersonComponent implements OnInit {
   constructor(private personService: PersonService) {}
 
   ngOnInit(): void {
-    this.getPerson();
+    this.getAll();
   }
 
-  getPerson(): void {
-    console.log(this.personService);
+  getAll(): void {
     this.listPerson = this.personService.getPerson();
+    console.log('All', this.listPerson);
+  }
+
+  getActivePerson(): void {
+    let active = this.personService.getPerson();
+
+    let activeList = active.filter((Person) => Person.active === true);
+
+    this.listPerson = activeList;
+
+    console.log('active', this.listPerson);
+  }
+
+  getInactivePerson(): void {
+    let inactive = this.personService.getPerson();
+
+    let inactiveList = inactive.filter((Person) => Person.active === false);
+
+    this.listPerson = inactiveList;
+
+    console.log('inactive', this.listPerson);
   }
 }

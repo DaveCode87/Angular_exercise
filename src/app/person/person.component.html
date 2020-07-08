@@ -1,6 +1,6 @@
-<button style='margin:5px'>All</button>
-<button style='margin:5px'>Active</button>
-<button style='margin:5px'>Inactive</button>
+<button class="buttonContainer" (click)="getAll()">All</button>
+<button class="buttonContainer" (click)="getActivePerson()">Active</button>
+<button class="buttonContainer" (click)="getInactivePerson()">Inactive</button>
 <hr>
 <ul>
   <li *ngFor="let person of listPerson">
