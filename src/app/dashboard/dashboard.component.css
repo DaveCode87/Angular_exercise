@@ -1,0 +1,55 @@
+.container-dashboard {
+  border: 2px solid lightblue;
+  margin: 15px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  background-color: lightgray;
+}
+
+
+.container-cards {
+  display: flex;
+}
+
+.container-singleCard {
+  width: 300px;
+  height: 250px;
+  margin: 15px;
+  border: 2px solid lightgreen;
+  background-color: white;
+}
+
+
+.container-description {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.container-adoption {
+  display: flex;
+  padding: 15px;
+  width: 80px;
+  border: 2px dashed green;
+  color: green
+}
+
+.container-votes {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px;
+  color: blue;
+}
+
+.container-awaiting-adoption {
+
+  display: flex;
+  padding: 15px;
+  width: 150px;
+  border: 2px dashed lightcoral;
+  color: lightcoral
+}
