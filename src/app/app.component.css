@@ -1,0 +1,25 @@
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-link {
+  align-items: center;
+  padding: 10px;
+  width: 400px;
+  background-color: lightgray;
+  border: 3px solid lightblue;
+  margin: 15px;
+}
+
+.navbar-login {
+  align-items: center;
+  padding: 10px;
+  width: 40px;
+  background-color: lightgray;
+  border: 3px solid lightblue;
+  margin: 15px;
+}

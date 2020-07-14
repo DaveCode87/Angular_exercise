@@ -1,0 +1,29 @@
+<div class='container-dashboard'>
+  <h1>I piu' votati</h1>
+  <div class='container-cards'>
+    <a *ngFor="let animal of animals">
+      <div class='container-singleCard'>
+        <div class='container-description'>
+          <div><img alt="image" src={{animal.image}} /> </div>
+          <div>
+            <h4>Name:{{animal.name}}</h4>
+            <h4>Razza:{{animal.race}}</h4>
+            <h4>Anni:{{animal.age}}</h4>
+          </div>
+        </div>
+        <div *ngIf="animal.adoption; else elseBlock">
+          <div class='container-adoption'>Adottato</div>
+        </div>
+        <ng-template #elseBlock>
+          <div class='container-awaiting-adoption'>In Attesa di Adozione</div>
+        </ng-template>
+
+
+        <div class='container-votes'>
+          <h3>Voti:{{animal.votes}}</h3>
+
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
