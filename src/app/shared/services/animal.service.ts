@@ -1,5 +1,5 @@
 import { ANIMALS } from './../../model/mock-data/mock-animal';
-import { Animal } from './../../animals/animal';
+import { Animal } from '../../animal';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 

@@ -1,4 +1,4 @@
-import { Animal } from '../../animals/animal';
+import { Animal } from '../../animal';
 
 export const ANIMALS: Animal[] = [
   {

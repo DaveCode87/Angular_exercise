@@ -1,5 +1,5 @@
 import { AnimalService } from './../shared/services/animal.service';
-import { Animal } from './../animals/animal';
+import { Animal } from '../animal';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
