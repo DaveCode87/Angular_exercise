@@ -61,7 +61,7 @@ export const ANIMALS: Animal[] = [
     race: 'Bassotto',
     age: 5,
     adoption: true,
-    votes: 190,
+    votes: 90,
     image: '../../assets/images/150.png',
   },
   {

@@ -8,10 +8,18 @@ import { AnimalsComponent } from './animals/animals.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, DashboardComponent, AnimalsComponent, PagenotfoundComponent, HomeComponent, LoginComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    DashboardComponent,
+    AnimalsComponent,
+    PagenotfoundComponent,
+    HomeComponent,
+    LoginComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

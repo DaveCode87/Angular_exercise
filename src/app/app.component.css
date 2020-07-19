@@ -23,3 +23,12 @@
   border: 3px solid lightblue;
   margin: 15px;
 }
+
+.navbar-user {
+  align-items: center;
+  padding: 10px;
+  width: 160px;
+  background-color: lightgray;
+  border: 3px solid lightblue;
+  margin: 15px;
+}

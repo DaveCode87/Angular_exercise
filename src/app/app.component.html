@@ -1,5 +1,16 @@
-<nav class='navbar-container'>
-  <div class='navbar-link'><a routerLink="/dashboard">Dashboard</a></div>
-  <div class='navbar-login'><a routerLink="/login">Login</a></div>
-</nav>
+<div *ngIf="authentication; else elseBlock">
+  <nav class='navbar-container'>
+    <div class='navbar-link'><a routerLink="/dashboard">Dashboard</a><a routerLink="/animals">Animals</a></div>
+    <div class='navbar-user'>Benvenuto , </div>
+    <div class='navbar-login'><a routerLink="/dashboard" (click)="logout()">Logout</a></div>
+  </nav>
+</div>
+
+<ng-template #elseBlock>
+  <nav class='navbar-container'>
+    <div class='navbar-link'><a routerLink="/dashboard">Dashboard</a></div>
+    <div class='navbar-login'><a routerLink="/login">Login</a></div>
+  </nav>
+</ng-template>
+
 <router-outlet></router-outlet>
