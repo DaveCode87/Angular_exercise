@@ -1,15 +1,17 @@
 import { USER } from './../../model/mock-data/mock-user';
-import { User } from './../../user';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { User } from '../../user';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
-  userList(): Observable<User[]> {
-    return of(USER);
-  }
+export class LoginService {
+  user = USER;
 
   constructor() {}
+
+  getUser(): Observable<User[]> {
+    return of(this.user);
+  }
 }

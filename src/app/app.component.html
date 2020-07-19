@@ -1,7 +1,7 @@
-<div *ngIf="authentication; else elseBlock">
+<div *ngIf="user[0].authentication; else elseBlock">
   <nav class='navbar-container'>
     <div class='navbar-link'><a routerLink="/dashboard">Dashboard</a><a routerLink="/animals">Animals</a></div>
-    <div class='navbar-user'>Benvenuto , </div>
+    <div class='navbar-user'>Benvenuto ,{{user[0].user}} </div>
     <div class='navbar-login'><a routerLink="/dashboard" (click)="logout()">Logout</a></div>
   </nav>
 </div>

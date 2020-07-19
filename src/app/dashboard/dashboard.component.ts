@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   }
   getAnimal(): void {
     this.animalService
-      .getTopRated(6)
+      .getTopRated(4)
       .subscribe((animals) => (this.animals = animals));
   }
 }

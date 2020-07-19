@@ -1,3 +1,5 @@
+import { LoginService } from './../shared/services/login.service';
+import { USER } from './../model/mock-data/mock-user';
 import { User } from './../user';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,24 +9,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  user: User = {
-    id: 1,
-    user: 'demo',
-    password: 'password',
-    authentication: false,
-  };]
+  user: User[];
+  constructor(private loginService: LoginService) {}
 
-  constructor() {}
-
-  onSubmit(x, y) {
-    if (this.user.user === x && this.user.password === y) {
-      this.user.authentication = true;
-      console.log(this.user.authentication);
-    } else {
-      alert('Nome Utente o Password Errati');
-      console.log(this.user.authentication);
-    }
+  ngOnInit(): void {
+    this.getUser();
   }
 
-  ngOnInit(): void {}
+  getUser(): void {
+    console.log('dentro il get user');
+    this.loginService.getUser().subscribe((user) => (this.user = user));
+    console.log('loginComponent', this.user[0].user);
+  }
+
+  onSubmit(x, y): void {
+    if (this.user[0].user === x && this.user[0].password === y) {
+      alert(`benvenuto ${this.user[0].user}`);
+      this.user[0].authentication = true;
+      console.log('authentication', this.user[0].authentication);
+    } else {
+      alert('Nome Utente o Password Errati');
+      console.log('authentication', this.user[0].authentication);
+    }
+  }
 }
