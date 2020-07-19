@@ -13,10 +13,12 @@
 
 .container-cards {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .container-singleCard {
-  width: 300px;
+  width: 250px;
   height: 250px;
   margin: 15px;
   border: 2px solid lightgreen;
@@ -35,7 +37,8 @@
   padding: 15px;
   width: 80px;
   border: 2px dashed green;
-  color: green
+  color: green;
+  font-size: 10px;
 }
 
 .container-votes {
@@ -51,5 +54,6 @@
   padding: 15px;
   width: 150px;
   border: 2px dashed lightcoral;
-  color: lightcoral
+  color: lightcoral;
+  font-size: 10px;
 }

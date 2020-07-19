@@ -10,6 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   user: User[];
+
+  userLog: string;
+  passwordLog: string;
+
   constructor(private loginService: LoginService) {}
 
   ngOnInit(): void {
@@ -22,8 +26,11 @@ export class LoginComponent implements OnInit {
     console.log('loginComponent', this.user[0].user);
   }
 
-  onSubmit(x, y): void {
-    if (this.user[0].user === x && this.user[0].password === y) {
+  onSubmit(userLog, passwordLog): void {
+    if (
+      this.user[0].user === userLog &&
+      this.user[0].password === passwordLog
+    ) {
       alert(`benvenuto ${this.user[0].user}`);
       this.user[0].authentication = true;
       console.log('authentication', this.user[0].authentication);

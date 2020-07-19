@@ -6,9 +6,9 @@
         <div class='container-description'>
           <div><img alt="image" src={{animal.image}} /> </div>
           <div>
-            <h4>Name:{{animal.name}}</h4>
-            <h4>Razza:{{animal.race}}</h4>
-            <h4>Anni:{{animal.age}}</h4>
+            <h6>Name:{{animal.name}}</h6>
+            <h6>Razza:{{animal.race}}</h6>
+            <h6>Anni:{{animal.age}}</h6>
           </div>
         </div>
         <div *ngIf="animal.adoption; else elseBlock">
@@ -20,7 +20,7 @@
 
 
         <div class='container-votes'>
-          <h3>Voti:{{animal.votes}}</h3>
+          <h5>Voti:{{animal.votes}}</h5>
 
         </div>
       </div>

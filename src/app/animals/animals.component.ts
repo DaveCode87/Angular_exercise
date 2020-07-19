@@ -17,8 +17,9 @@ export class AnimalsComponent implements OnInit {
     this.getAnimal();
   }
   getAnimal(): void {
+    length = this.animalService.animals.length;
     this.animalService
-      .getTopRated(10)
+      .getTopRated(length)
       .subscribe((animals) => (this.animals = animals));
   }
 }

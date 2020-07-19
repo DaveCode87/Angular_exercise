@@ -1,30 +1,13 @@
-<!--<div class="container">
-  <form>
-    <div>
-      <h1>Login</h1>
-      <div>
-        <input type="text" #todo class="form-control" placeholder="Add Todo" name="todo" ngModel>
-        <p>{{todo.value}}</p>
-        <button (click)="addTodo(todo.value)">Invio</button>
-      </div>
-    </div>
-  </form>
+<div class="containerForm">
+  <div>
+    <label>user:
+      <input [(ngModel)]="userLog" placeholder="user" />
+    </label>
+  </div>
+  <div>
+    <label>password:
+      <input [(ngModel)]="passwordLog" placeholder="password" />
+    </label>
+  </div>
+  <button (click)="onSubmit(userLog,passwordLog)" routerLink="/dashboard">Invio</button>
 </div>
-
- -->
-
-<div>
-  <label>user:
-    <input [(ngModel)]="x" placeholder="user" />
-  </label>
-</div>
-<div>
-  <label>password:
-    <input [(ngModel)]="y" placeholder="password" />
-  </label>
-</div>
-<button (click)="onSubmit(x,y)">Invio</button>
-
-
-<p>{{user[0].user}}</p>
-<p>{{user[0].password}}</p>
