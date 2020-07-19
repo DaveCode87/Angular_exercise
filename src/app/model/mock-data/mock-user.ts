@@ -5,5 +5,6 @@ export const USER: User[] = [
     id: 1,
     user: 'demo',
     password: 'password',
+    authentication: false,
   },
 ];

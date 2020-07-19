@@ -11,3 +11,17 @@
   </form>
 </div>
 -->
+
+
+<div>
+  <label>user:
+    <input [(ngModel)]="x" placeholder="user" />
+  </label>
+</div>
+<div>
+  <label>password:
+    <input [(ngModel)]="y" placeholder="password" />
+  </label>
+</div>
+
+<button (click)="onSubmit(x,y)">Invio</button>
