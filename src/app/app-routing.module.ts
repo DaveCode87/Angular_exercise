@@ -1,3 +1,4 @@
+import { AnimalDetailComponent } from './animal-detail/animal-detail.component';
 import { AnimalsComponent } from './animals/animals.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { LoginComponent } from './login/login.component';
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'animals', component: AnimalsComponent },
+  { path: 'detail/:id', component: AnimalDetailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: '**', component: PagenotfoundComponent },

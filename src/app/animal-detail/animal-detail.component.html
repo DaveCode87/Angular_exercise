@@ -1,0 +1,19 @@
+<div *ngIf="animal">
+  <h2>{{animal.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{animal.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="animal.name" placeholder="name" />
+    </label>
+    <label>race:
+      <input [(ngModel)]="animal.race" placeholder="race" />
+    </label>
+    <label>age:
+      <input [(ngModel)]="animal.age" placeholder="age" />
+    </label>
+    <label>votes:
+      <input [(ngModel)]="animal.votes" placeholder="votes" />
+    </label>
+  </div>
+</div>
+<button (click)="goBack()">indietro</button>

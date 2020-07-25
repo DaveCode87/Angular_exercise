@@ -1,8 +1,8 @@
 <div class='container-dashboard'>
   <h1>Lista animali</h1>
   <div class='container-cards'>
-    <a *ngFor="let animal of animals">
-      <div class='container-singleCard'>
+    <a *ngFor="let animal of animals" routerLink="/detail/{{animal.id}}">
+      <button class='container-singleCard'>
         <div class='container-description'>
           <div><img alt="image" src={{animal.image}} /> </div>
           <div>
@@ -23,7 +23,7 @@
           <h5>Voti:{{animal.votes}}</h5>
 
         </div>
-      </div>
+      </button>
     </a>
   </div>
 </div>
