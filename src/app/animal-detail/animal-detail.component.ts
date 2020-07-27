@@ -32,4 +32,8 @@ export class AnimalDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  save(): void {
+    this.animalService.update(this.animal).subscribe(() => this.goBack());
+  }
 }

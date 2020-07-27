@@ -1,4 +1,4 @@
-import { Animal } from '../../animal';
+/*import { Animal } from '../../animal';
 
 export const ANIMALS: Animal[] = [
   {
@@ -10,7 +10,7 @@ export const ANIMALS: Animal[] = [
     votes: 150,
     image: '../../assets/images/150.png',
   },
-  {
+ {
     id: 2,
     name: 'Sharon',
     race: 'Labrador',
@@ -92,3 +92,4 @@ export const ANIMALS: Animal[] = [
     image: '../../assets/images/150.png',
   },
 ];
+*/

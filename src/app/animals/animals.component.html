@@ -1,29 +1,48 @@
 <div class='container-dashboard'>
   <h1>Lista animali</h1>
   <div class='container-cards'>
-    <a *ngFor="let animal of animals" routerLink="/detail/{{animal.id}}">
-      <button class='container-singleCard'>
-        <div class='container-description'>
-          <div><img alt="image" src={{animal.image}} /> </div>
-          <div>
-            <h6>Name:{{animal.name}}</h6>
-            <h6>Razza:{{animal.race}}</h6>
-            <h6>Anni:{{animal.age}}</h6>
-          </div>
-        </div>
-        <div *ngIf="animal.adoption; else elseBlock">
-          <div class='container-adoption'>Adottato</div>
-        </div>
-        <ng-template #elseBlock>
-          <div class='container-awaiting-adoption'>In Attesa di Adozione</div>
-        </ng-template>
 
 
-        <div class='container-votes'>
-          <h5>Voti:{{animal.votes}}</h5>
 
-        </div>
+    <div>
+      <label>Animal name:
+        <input #animalName />
+      </label>
+      <button (click)="add(animalName.value); animalName.value=''">
+        add
       </button>
-    </a>
+    </div>
+
+
+
+    <li *ngFor="let animal of animals" routerLink="/detail/{{animal.id}}">
+      <a>
+        <button class='container-singleCard'>
+          <div class='container-description'>
+            <div><img alt="image" src={{animal.image}} /> </div>
+            <div>
+              <h6>Name:{{animal.name}}</h6>
+              <h6>Razza:{{animal.race}}</h6>
+              <h6>Anni:{{animal.age}}</h6>
+            </div>
+          </div>
+          <div *ngIf="animal.adoption; else elseBlock">
+            <div class='container-adoption'>Adottato</div>
+          </div>
+          <ng-template #elseBlock>
+            <div class='container-awaiting-adoption'>In Attesa di Adozione</div>
+          </ng-template>
+
+
+          <div class='container-votes'>
+            <h5>Voti:{{animal.votes}}</h5>
+
+          </div>
+
+        </button>
+      </a>
+
+      <button (click)="delete(animal)">Elimina</button>
+    </li>
   </div>
 </div>

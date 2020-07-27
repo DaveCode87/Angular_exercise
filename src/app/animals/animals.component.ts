@@ -1,4 +1,3 @@
-import { ANIMALS } from './../model/mock-data/mock-animal';
 import { AnimalService } from '../shared/services/animal.service';
 import { Animal } from '../animal';
 import { Component, OnInit } from '@angular/core';
@@ -17,9 +16,23 @@ export class AnimalsComponent implements OnInit {
     this.getAnimal();
   }
   getAnimal(): void {
-    length = this.animalService.animals.length;
     this.animalService
-      .getTopRated(length)
+      .getAnimals()
       .subscribe((animals) => (this.animals = animals));
+  }
+
+  delete(animal: Animal): void {
+    this.animals = this.animals.filter((a) => a !== animal);
+    this.animalService.delete(animal).subscribe();
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) {
+      return;
+    }
+    this.animalService.add({ name } as Animal).subscribe((animal) => {
+      this.animals.push(animal);
+    });
   }
 }
