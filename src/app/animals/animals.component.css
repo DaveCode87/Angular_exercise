@@ -19,7 +19,7 @@
 
 .container-singleCard {
   width: 250px;
-  height: 250px;
+  height: 300px;
   margin: 15px;
   border: 2px solid lightgreen;
   background-color: white;
@@ -56,4 +56,9 @@
   border: 2px dashed lightcoral;
   color: lightcoral;
   font-size: 10px;
+}
+
+
+.container-add {
+  border: 2px solid lightgreen;
 }

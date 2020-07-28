@@ -1,48 +1,65 @@
+<div>
+  <label>cerca per nome:
+    <input type="text" placeholder="search" [(ngModel)]="search" />
+  </label>
+</div>
 <div class='container-dashboard'>
+
   <h1>Lista animali</h1>
-  <div class='container-cards'>
-
-
-
-    <div>
-      <label>Animal name:
-        <input #animalName />
+  <div class='container-add'>
+    Aggiungi un nuovo Animale
+    <p>
+      <label>Name:
+        <input #name />
       </label>
-      <button (click)="add(animalName.value); animalName.value=''">
-        add
+    </p>
+    <p>
+      <label>Razza:
+        <input #race />
+      </label>
+    </p>
+    <p>
+      <label>Anni:
+        <input #age />
+      </label>
+    </p>
+    <p>
+      <label>Voti:
+        <input #votes />
+      </label>
+    </p>
+    <p>
+      <button (click)="add(name.value , race.value , age.value , votes.value );
+      name.value='' ; race.value=''; age.value=''; votes.value=''">
+        Aggiungi
       </button>
-    </div>
+    </p>
+  </div>
 
 
-
-    <li *ngFor="let animal of animals" routerLink="/detail/{{animal.id}}">
-      <a>
-        <button class='container-singleCard'>
-          <div class='container-description'>
-            <div><img alt="image" src={{animal.image}} /> </div>
-            <div>
-              <h6>Name:{{animal.name}}</h6>
-              <h6>Razza:{{animal.race}}</h6>
-              <h6>Anni:{{animal.age}}</h6>
-            </div>
+  <div class='container-cards'>
+    <li *ngFor="let animal of animals | search:search">
+      <div class='container-singleCard'>
+        <div class='container-description'>
+          <div><img alt="image" src={{animal.image}} /> </div>
+          <div>
+            <h6>Name:{{animal.name}}</h6>
+            <h6>Razza:{{animal.race}}</h6>
+            <h6>Anni:{{animal.age}}</h6>
           </div>
-          <div *ngIf="animal.adoption; else elseBlock">
-            <div class='container-adoption'>Adottato</div>
-          </div>
-          <ng-template #elseBlock>
-            <div class='container-awaiting-adoption'>In Attesa di Adozione</div>
-          </ng-template>
-
-
-          <div class='container-votes'>
-            <h5>Voti:{{animal.votes}}</h5>
-
-          </div>
-
-        </button>
-      </a>
-
-      <button (click)="delete(animal)">Elimina</button>
+        </div>
+        <div *ngIf="animal.adoption; else elseBlock">
+          <div class='container-adoption'>Adottato</div>
+        </div>
+        <ng-template #elseBlock>
+          <div class='container-awaiting-adoption'>In Attesa di Adozione</div>
+        </ng-template>
+        <div class='container-votes'>
+          <h5>Voti:{{animal.votes}}</h5>
+        </div>
+        <button (click)="delete(animal)">Elimina</button>
+        <button routerLink="/detail/{{animal.id}}">Update</button>
+      </div>
     </li>
   </div>
 </div>

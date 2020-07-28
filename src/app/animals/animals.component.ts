@@ -12,6 +12,8 @@ export class AnimalsComponent implements OnInit {
 
   constructor(private animalService: AnimalService) {}
 
+  search: string;
+
   ngOnInit(): void {
     this.getAnimal();
   }
@@ -26,13 +28,17 @@ export class AnimalsComponent implements OnInit {
     this.animalService.delete(animal).subscribe();
   }
 
-  add(name: string): void {
+  add(name: string, race: string, age: number, votes: number): void {
     name = name.trim();
+    race = race.trim();
+    let image = '../../assets/images/150.png';
     if (!name) {
       return;
     }
-    this.animalService.add({ name } as Animal).subscribe((animal) => {
-      this.animals.push(animal);
-    });
+    this.animalService
+      .add({ name, race, age, votes, image } as Animal)
+      .subscribe((animal) => {
+        this.animals.push(animal);
+      });
   }
 }
