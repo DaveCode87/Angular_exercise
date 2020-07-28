@@ -20,6 +20,25 @@ export class AnimalsComponent implements OnInit {
   ngOnInit(): void {
     this.getAnimal();
   }
+
+  getAdopted(): void {
+    this.animalService
+      .getAnimals()
+      .subscribe(
+        (animals) =>
+          (this.animals = animals.filter((Animal) => Animal.adoption === true))
+      );
+  }
+
+  getNotAdopted(): void {
+    this.animalService
+      .getAnimals()
+      .subscribe(
+        (animals) =>
+          (this.animals = animals.filter((Animal) => Animal.adoption === false))
+      );
+  }
+
   getAnimal(): void {
     this.animalService
       .getAnimals()

@@ -13,11 +13,16 @@ export class DashboardComponent implements OnInit {
   constructor(private animalService: AnimalService) {}
 
   ngOnInit(): void {
-    this.getAnimal();
+    this.getAnimal(4);
   }
-  getAnimal(): void {
+  getAnimal(numElm: number): void {
     this.animalService
       .getAnimals()
-      .subscribe((animals) => (this.animals = animals));
+      .subscribe(
+        (animals) =>
+          (this.animals = animals
+            .sort((a, b) => b.votes - a.votes)
+            .slice(0, numElm))
+      );
   }
 }

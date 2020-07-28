@@ -9,11 +9,9 @@
       <input type="text" placeholder="search" [(ngModel)]="searchId" />
     </label>
   </p>
-  <p>
-    <label>cerca per stato:
-      <input type="text" placeholder="search" [(ngModel)]="searchState" />
-    </label>
-  </p>
+  <button (click)="getAnimal()">Tutti</button>
+  <button (click)="getAdopted()">Adottati</button>
+  <button (click)="getNotAdopted()">In Attesa di adozione</button>
 </div>
 
 <div class='container-dashboard'>
