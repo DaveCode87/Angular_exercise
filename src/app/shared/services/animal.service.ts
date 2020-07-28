@@ -22,14 +22,18 @@ export class AnimalService {
       catchError(this.handleError<Animal[]>('getAnimals', []))
     );
   }
-
+  /*
   getTopRated(numElm: number): Observable<Animal[]> {
     return this.http.get<Animal[]>(this.animalsUrl).pipe(
       tap((_) => console.log('fetched animals')),
       catchError(this.handleError<Animal[]>('getAnimals', []))
     );
   }
-
+  
+  getTopRated(numElm: number): Observable<Animal[]> {
+    return of(this.animals.sort((a, b) => b.votes - a.votes).slice(0, numElm));
+  }
+*/
   getAnimal(id: number): Observable<Animal> {
     const url = `${this.animalsUrl}/${id}`;
     return this.http.get<Animal>(url).pipe(
@@ -45,14 +49,6 @@ export class AnimalService {
         tap((_) => console.log(`updated animal id=${animal.id}`)),
         catchError(this.handleError<any>('updateAnimal'))
       );
-  }
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      console.log(`${operation} failed: ${error.message}`);
-      return of(result as T);
-    };
   }
 
   delete(animal: Animal): Observable<Animal> {
@@ -74,5 +70,13 @@ export class AnimalService {
         ),
         catchError(this.handleError<Animal>('addAnimal'))
       );
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      console.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
   }
 }

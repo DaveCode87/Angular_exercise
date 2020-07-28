@@ -16,6 +16,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { AnimalDetailComponent } from './animal-detail/animal-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchPipe } from './search.pipe';
+import { SearchIdPipe } from './search-id.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SearchPipe } from './search.pipe';
     LoginComponent,
     AnimalDetailComponent,
     SearchPipe,
+    SearchIdPipe,
   ],
   imports: [
     BrowserModule,

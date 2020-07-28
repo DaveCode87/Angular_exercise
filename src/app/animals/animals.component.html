@@ -1,8 +1,21 @@
 <div>
-  <label>cerca per nome:
-    <input type="text" placeholder="search" [(ngModel)]="search" />
-  </label>
+  <p>
+    <label>cerca per nome:
+      <input type="text" placeholder="search" [(ngModel)]="searchName" />
+    </label>
+  </p>
+  <p>
+    <label>cerca per id:
+      <input type="text" placeholder="search" [(ngModel)]="searchId" />
+    </label>
+  </p>
+  <p>
+    <label>cerca per stato:
+      <input type="text" placeholder="search" [(ngModel)]="searchState" />
+    </label>
+  </p>
 </div>
+
 <div class='container-dashboard'>
 
   <h1>Lista animali</h1>
@@ -29,8 +42,12 @@
       </label>
     </p>
     <p>
-      <button (click)="add(name.value , race.value , age.value , votes.value );
-      name.value='' ; race.value=''; age.value=''; votes.value=''">
+      <input type="radio" value="FALSE" name="adoption" #adoption>adottato
+      <input type="radio" value="TRUE" name="adoption" #adoption>in attesa di adozione
+    </p>
+    <p>
+      <button (click)="add(name.value , race.value , age.value , votes.value , adoption.value);
+      name.value='' ; race.value=''; age.value=''; votes.value='';adoption.value=''">
         Aggiungi
       </button>
     </p>
@@ -38,7 +55,7 @@
 
 
   <div class='container-cards'>
-    <li *ngFor="let animal of animals | search:search">
+    <li *ngFor="let animal of animals | search:searchName | searchId:searchId">
       <div class='container-singleCard'>
         <div class='container-description'>
           <div><img alt="image" src={{animal.image}} /> </div>
