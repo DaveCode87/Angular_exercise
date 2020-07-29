@@ -1,0 +1,28 @@
+import { AnimalService } from './../shared/services/animal.service';
+import { Animal } from '../animal';
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css'],
+})
+export class DashboardComponent implements OnInit {
+  animals: Animal[] = [];
+
+  constructor(private animalService: AnimalService) {}
+
+  ngOnInit(): void {
+    this.getAnimal(4);
+  }
+  getAnimal(numElm: number): void {
+    this.animalService
+      .getAnimals()
+      .subscribe(
+        (animals) =>
+          (this.animals = animals
+            .sort((a, b) => b.votes - a.votes)
+            .slice(0, numElm))
+      );
+  }
+}

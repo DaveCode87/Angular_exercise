@@ -1,0 +1,80 @@
+<div>
+  <p>
+    <label>cerca per nome:
+      <input type="text" placeholder="search" [(ngModel)]="searchName" />
+    </label>
+  </p>
+  <p>
+    <label>cerca per id:
+      <input type="text" placeholder="search" [(ngModel)]="searchId" />
+    </label>
+  </p>
+  <button (click)="getAnimal()">Tutti</button>
+  <button (click)="getAdopted()">Adottati</button>
+  <button (click)="getNotAdopted()">In Attesa di adozione</button>
+</div>
+
+<div class='container-dashboard'>
+
+  <h1>Lista animali</h1>
+  <div class='container-add'>
+    Aggiungi un nuovo Animale
+    <p>
+      <label>Name:
+        <input #name />
+      </label>
+    </p>
+    <p>
+      <label>Razza:
+        <input #race />
+      </label>
+    </p>
+    <p>
+      <label>Anni:
+        <input #age />
+      </label>
+    </p>
+    <p>
+      <label>Voti:
+        <input #votes />
+      </label>
+    </p>
+    <p>
+      <input type="radio" value="FALSE" name="adoption" #adoption>adottato
+      <input type="radio" value="TRUE" name="adoption" #adoption>in attesa di adozione
+    </p>
+    <p>
+      <button (click)="add(name.value , race.value , age.value , votes.value , adoption.value);
+      name.value='' ; race.value=''; age.value=''; votes.value='';adoption.value=''">
+        Aggiungi
+      </button>
+    </p>
+  </div>
+
+
+  <div class='container-cards'>
+    <li *ngFor="let animal of animals | search:searchName | searchId:searchId">
+      <div class='container-singleCard'>
+        <div class='container-description'>
+          <div><img alt="image" src={{animal.image}} /> </div>
+          <div>
+            <h6>Name:{{animal.name}}</h6>
+            <h6>Razza:{{animal.race}}</h6>
+            <h6>Anni:{{animal.age}}</h6>
+          </div>
+        </div>
+        <div *ngIf="animal.adoption; else elseBlock">
+          <div class='container-adoption'>Adottato</div>
+        </div>
+        <ng-template #elseBlock>
+          <div class='container-awaiting-adoption'>In Attesa di Adozione</div>
+        </ng-template>
+        <div class='container-votes'>
+          <h5>Voti:{{animal.votes}}</h5>
+        </div>
+        <button (click)="delete(animal)">Elimina</button>
+        <button routerLink="/detail/{{animal.id}}">Update</button>
+      </div>
+    </li>
+  </div>
+</div>

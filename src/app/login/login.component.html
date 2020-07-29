@@ -1,0 +1,13 @@
+<div class="containerForm">
+  <div>
+    <label>user:
+      <input [(ngModel)]="userLog" placeholder="user" />
+    </label>
+  </div>
+  <div>
+    <label>password:
+      <input [(ngModel)]="passwordLog" placeholder="password" />
+    </label>
+  </div>
+  <button (click)="onSubmit(userLog,passwordLog)" routerLink="/dashboard">Invio</button>
+</div>
