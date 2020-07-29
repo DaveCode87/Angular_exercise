@@ -11,6 +11,6 @@ export class SearchIdPipe implements PipeTransform {
     if (!search) {
       return items;
     }
-    return items.filter((x) => x.id.includes(search));
+    return items.filter((items) => items === search, console.log(items));
   }
 }
